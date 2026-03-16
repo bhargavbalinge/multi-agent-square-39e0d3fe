@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Square Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Square Calculator</h1>
+        <form method="post">
+            <input type="text" name="number" value="{{ number|e }}" placeholder="Enter a number">
+            <button type-="submit">Calculate</button>
+        </form>
+        {% if result is not none %}
+            <p class="result">The square of {{ number|e }} is {{ result }}.</p>
+        {% endif %}
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
